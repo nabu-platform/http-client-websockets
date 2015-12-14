@@ -126,6 +126,10 @@ public class WebSocketClient implements Closeable {
 		this.formatterFactory = new WebSocketMessageFormatterFactory(true);
 	}
 	
+	public boolean isClosed() {
+		return thread == null || !thread.isAlive();
+	}
+	
 	public void start() {
 		thread = new Thread(new Runnable() {
 			@Override
@@ -150,7 +154,7 @@ public class WebSocketClient implements Closeable {
 					}
 				}
 				catch (IOException e) {
-					// ignore, we just stop
+					logger.warn("Could not process incoming websocket message", e);
 				}
 				catch (Exception e) {
 					logger.error("Could not process incoming websocket message", e);
@@ -166,6 +170,7 @@ public class WebSocketClient implements Closeable {
 				}
 			}
 		});
+		thread.setDaemon(true);
 		thread.start();
 	}
 	
