@@ -104,7 +104,7 @@ public class WebSocketClient implements Closeable {
 			}
 			return new WebSocketClient(
 				openSockets.get(0),
-				new WebSocketRequestParserFactory(dataProvider, protocols, path, 13, null, null),
+				new WebSocketRequestParserFactory(dataProvider, protocols, path, 13, null, null, null),
 				dispatcher
 			);
 		}
