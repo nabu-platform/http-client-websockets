@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>be.nabu.libs.http</groupId>
 	<artifactId>http-client-websockets</artifactId>
-	<version>0.2</version>
+	<version>0.3-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>http-client-websocket</name>
 	<url>http://nabu.be</url>
